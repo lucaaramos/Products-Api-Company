@@ -1,12 +1,15 @@
-import express from 'express';
-import morgan from 'morgan'
+  import express from 'express';
+  import morgan from 'morgan'
+  import productsRoutes from './routes/products.routes.js'
 
-const app = express();
+  const app = express();
 
-app.use(morgan('dev'))
+  app.use(morgan('dev'))
 
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+  app.get('/', (req, res) => {
+    res.send('Hello World!');
+  });
 
-export default app;
+  app.use("/products",productsRoutes)
+
+  export default app;
